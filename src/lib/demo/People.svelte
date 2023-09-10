@@ -1,6 +1,7 @@
 <script>
 	import Hello from "./Hello.svelte";
     import { people } from '$lib/stores/peoplestore.js';
+	import NewPerson from "./NewPerson.svelte";
 
 </script>
 
@@ -8,3 +9,4 @@
     <Hello name={person.name} />
 {/each}
 
+<NewPerson/>
