@@ -6,7 +6,7 @@
 </script>
 
 {#each $people as person}
-    <Hello name={person.name} />
+    <a href={'./person/'+person.id}><Hello name={person.name} /></a>
 {/each}
 
 <NewPerson/>

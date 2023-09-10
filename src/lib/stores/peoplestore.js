@@ -1,4 +1,4 @@
-import { writable } from 'svelte/store';
+import { writable, get } from 'svelte/store';
 
 export let people = writable([
     { id:1 , name: "Hans", age: 42 },
@@ -13,6 +13,15 @@ export let addPerson = ( name, age ) => {
     });
 }
 
-let determineId = ( currentPeople   ) => {
-    return Math.max( currentPeople.map( person => person.id ) ) + 1;
+let determineId = () => {
+    const peopleStore = get(people); 
+    const nums = peopleStore.map( person => person.id ); 
+    console.log("numbers" , nums);    
+    return Math.max.apply( null, nums) + 1;
+}
+
+export let findById = ( id ) => {
+    const t = Number(id);
+    const peopleStore = get(people);   
+    return peopleStore.find( person => person.id === t );
 }
