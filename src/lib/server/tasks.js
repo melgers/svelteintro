@@ -1,6 +1,6 @@
 export let tasks = [
-    { id:1 , name: "Hans", age: 42 },
-    { id:2 , name: "Greta", age: 16 },
-    { id:3 , name: "Peter", age: 12 },
-    { id:4 , name: "Tom" , age:25 }
+    { id:1 , task: "Clean" , done: false },
+    { id:2 , task: "Work" , done: false },
+    { id:3 , task: "Sport" , done: false},
+    { id:4 , task: "Shopping", done: false}
 ]
