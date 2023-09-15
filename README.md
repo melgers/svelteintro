@@ -1,3 +1,7 @@
+# start elastic search
+
+podman run -d --name elasticsearch -it --net sreglemnet -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -e "ELASTIC_PASSWORD=elastic" elasticsearch:8.9.2
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
