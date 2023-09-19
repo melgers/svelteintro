@@ -56,23 +56,29 @@ export let loadStory = async ( id:string ) => {
     return loadTaskResponse;
 }
 
-export let updateStory = async ( id:string, task:Story) => {
+export let updateStory = async ( id:string, story:Story) => {
+    return client.update({
+        index: indexName,
+        id: id,
+        body: {
+            doc: story
+        }
+    });
 }
 
 export let deleteStory = async ( id:string ) => {
+    return client.delete({ index: indexName, id: id });
 }
 export async function loadStories():Promise<Story[]> {
     let loadTasksResponse = await client.search({
         index: indexName        
-    });
-    console.log(loadTasksResponse.hits.hits);
+    });    
     let test =  loadTasksResponse.hits.hits.map( (task:any) => { 
         return { 
             id : task._id as number , 
             title : task._source. title as string}
-        });
-        
-    console.log(test);    
+        });       
+    
     return test;
 }
 
